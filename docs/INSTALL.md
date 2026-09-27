@@ -1,3 +1,8 @@
 # 安装说明
 
-先运行 `python3 scripts/bootstrap_obsidian.py vault-template`，确认计划后加 `--apply`。重启 Obsidian，打开 `vault-template`，在社区插件页面确认信任。首次打开后在 Homepage 设置中选择 `主页.md`。
+1. 从 GitHub Releases 下载最新版 `vault-template-v*.zip`。
+2. 解压压缩包。
+3. 打开 Obsidian，选择“打开文件夹作为库”，并选择解压得到的 `vault-template` 文件夹。
+4. 首次打开时确认社区插件权限，然后打开 `主页.md`。
+
+主题、社区插件和 DataviewJS 设置均已包含，不需要运行安装脚本。Codex 定时任务属于个人本机配置，请按照 `automation/CODEX_DESKTOP_SETUP.md` 在自己的 Codex 项目中创建。

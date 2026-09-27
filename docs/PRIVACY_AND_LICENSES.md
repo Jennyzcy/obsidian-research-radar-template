@@ -1,3 +1,3 @@
 # 隐私与许可证
 
-本仓库只发布自有模板、文档、CSS 和脚本。第三方主题与插件由安装器从各自上游下载，并遵循其许可证。公开前运行 `python3 scripts/verify_template.py` 检查敏感内容。
+本仓库不发布私人笔记、工作区状态、账号凭据或绝对路径。第三方主题与插件随离线模板提供，著作权和许可证归各自原作者；来源与许可证链接见 `dependencies/`。公开前运行 `python3 scripts/verify_template.py vault-template` 检查敏感内容。

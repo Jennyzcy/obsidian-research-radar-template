@@ -16,7 +16,17 @@ class TemplateStructureTests(unittest.TestCase):
 
     def test_enabled_plugins_are_bundled(self):
         enabled = json.loads((VAULT / ".obsidian/community-plugins.json").read_text(encoding="utf-8"))
-        expected = {"calendar", "dataview", "editing-toolbar", "formatto-format", "modal-opener", "obsidian42-brat", "yh-inklight"}
+        expected = {
+            "calendar",
+            "dataview",
+            "editing-toolbar",
+            "formatto-format",
+            "image-converter",
+            "modal-opener",
+            "obsidian-style-settings",
+            "obsidian42-brat",
+            "yh-inklight",
+        }
         self.assertEqual(set(enabled), expected)
         for plugin_id in enabled:
             folder = VAULT / ".obsidian/plugins" / plugin_id

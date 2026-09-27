@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.bootstrap_obsidian import load_manifest, plan_install
+from scripts.bootstrap_obsidian import is_complete, load_manifest, plan_install
 
 
 class BootstrapTests(unittest.TestCase):
@@ -13,6 +13,13 @@ class BootstrapTests(unittest.TestCase):
             items = plan_install(vault, Path(__file__).resolve().parents[1] / "dependencies")
             self.assertTrue(any(item["id"] == "dataview" for item in items))
             self.assertTrue((vault / ".obsidian/plugins/unrelated").is_dir())
+
+    def test_complete_local_plugin_does_not_need_download(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            (folder / "main.js").write_text("", encoding="utf-8")
+            (folder / "manifest.json").write_text("{}", encoding="utf-8")
+            self.assertTrue(is_complete(folder, ["main.js", "manifest.json"]))
 
 
 if __name__ == "__main__":

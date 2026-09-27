@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_PLUGIN_IDS = {
     "dataview",
     "homepage",
-    "calendar",
+    "calendar-beta",
     "quickadd",
     "obsidian-tasks-plugin",
     "obsidian-spaced-repetition",

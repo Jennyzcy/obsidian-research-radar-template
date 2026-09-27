@@ -29,9 +29,17 @@ def _download(url, destination):
         shutil.copyfileobj(response, handle)
 
 
+def is_complete(folder, files):
+    folder = Path(folder)
+    return folder.is_dir() and all((folder / name).is_file() for name in files)
+
+
 def install_all(vault, dependencies):
     for item in plan_install(vault, dependencies):
         entry, target = item["entry"], item["target"]
+        if is_complete(target, entry["files"]):
+            print("跳过已打包组件：{0}".format(item["id"]))
+            continue
         with tempfile.TemporaryDirectory() as temp:
             temp = Path(temp)
             if item["kind"] == "theme":

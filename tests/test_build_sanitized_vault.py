@@ -37,6 +37,10 @@ class SanitizedVaultBuildTests(unittest.TestCase):
         radar.mkdir(parents=True)
         (radar / "论文雷达早报模板.md").write_text("# 早报", encoding="utf-8")
         (radar / "论文雷达周报模板.md").write_text("# 周报", encoding="utf-8")
+        private_attachment = source / "附件"
+        private_attachment.mkdir()
+        (private_attachment / "private.pdf").write_text("private", encoding="utf-8")
+        (source / ".copilot").mkdir()
         return source
 
     def test_build_rejects_nonempty_destination(self):
@@ -63,6 +67,17 @@ class SanitizedVaultBuildTests(unittest.TestCase):
             self.assertFalse((stage / ".obsidian/workspace.json").exists())
             plugin_data = (stage / ".obsidian/plugins/dataview/data.json").read_text(encoding="utf-8")
             self.assertNotIn("/Users/zcy", plugin_data)
+
+    def test_build_excludes_private_content_and_keeps_radar_structure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            stage = root / "stage"
+
+            build_template(self._make_source_vault(root), stage)
+
+            self.assertFalse((stage / "附件").exists())
+            self.assertFalse((stage / ".copilot").exists())
+            self.assertTrue((stage / "02-文献总结集合/论文雷达/assets/.gitkeep").is_file())
 
 
 if __name__ == "__main__":

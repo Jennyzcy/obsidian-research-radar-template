@@ -1,8 +1,13 @@
 .DS_Store
+/.obsidian/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .superpowers/
+vault-template.zip
+vault-template/.obsidian/workspace.json
+vault-template/.obsidian/workspace-mobile.json
+vault-template/.obsidian/workspaces.json
 vault-template/02-文献/论文雷达/01-每日推送/*
 !vault-template/02-文献/论文雷达/01-每日推送/.gitkeep
 vault-template/02-文献/论文雷达/02-每周精选/*

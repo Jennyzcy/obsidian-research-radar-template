@@ -504,12 +504,14 @@
       "artifact": "03-agent"
     },
     "pkmer": {
+      "tokenExpiresAt": 0,
       "userInfo": null
     },
     "enableCustomModel": false,
     "customModel": {
       "apiFormat": "openai-compatible",
       "baseUrl": "",
+      "apiKey": "",
       "model": "",
       "temperature": 0.2
     },

@@ -6,6 +6,7 @@ the repository's published vault-template directory.
 """
 import argparse
 import json
+import os
 import shutil
 from pathlib import Path
 from typing import Iterable, List
@@ -55,14 +56,21 @@ CONTENT_DIRECTORIES = (
 )
 
 
-def _ignore_names(_: str, names: Iterable[str]):
-    return {name for name in names if name in {".DS_Store", ".Rhistory", "__pycache__"} or name.endswith(".pyc")}
+def _ignored_name(name: str) -> bool:
+    return name in {".DS_Store", ".Rhistory", "__pycache__", ".git"} or name.endswith(".pyc")
 
 
 def _copy_tree(source: Path, destination: Path) -> None:
     if not source.is_dir():
         raise FileNotFoundError("missing required directory: {0}".format(source))
-    shutil.copytree(str(source), str(destination), ignore=_ignore_names)
+    for current, directories, files in os.walk(str(source)):
+        directories[:] = [name for name in directories if not _ignored_name(name)]
+        current_path = Path(current)
+        target_directory = destination / current_path.relative_to(source)
+        target_directory.mkdir(parents=True, exist_ok=True)
+        for name in files:
+            if not _ignored_name(name):
+                shutil.copy2(str(current_path / name), str(target_directory / name))
 
 
 def _sanitize_value(value):
@@ -74,6 +82,8 @@ def _sanitize_value(value):
         }
     if isinstance(value, list):
         return [_sanitize_value(item) for item in value]
+    if isinstance(value, str) and value.startswith("/Users/"):
+        return ""
     return value
 
 

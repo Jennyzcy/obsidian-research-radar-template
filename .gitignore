@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.superpowers/
+vault-template/.obsidian/plugins/
+vault-template/.obsidian/themes/
+vault-template/02-文献/论文雷达/01-每日推送/*
+!vault-template/02-文献/论文雷达/01-每日推送/.gitkeep
+vault-template/02-文献/论文雷达/02-每周精选/*
+!vault-template/02-文献/论文雷达/02-每周精选/.gitkeep
+vault-template/02-文献/论文雷达/03-Zotero待入库/*
+!vault-template/02-文献/论文雷达/03-Zotero待入库/.gitkeep
+vault-template/02-文献/论文雷达/assets/*
+!vault-template/02-文献/论文雷达/assets/.gitkeep

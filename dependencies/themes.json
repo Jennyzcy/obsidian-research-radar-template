@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "themes": [
+    {"id": "Blue Topaz", "version": "v6.0", "repository": "PKM-er/Blue-Topaz_Obsidian-css", "release_url": "https://github.com/PKM-er/Blue-Topaz_Obsidian-css/releases/tag/v6.0", "raw_base_url": "https://raw.githubusercontent.com/PKM-er/Blue-Topaz_Obsidian-css/v6.0", "files": ["theme.css", "manifest.json"], "purpose": "基础视觉主题", "license_url": "https://github.com/PKM-er/Blue-Topaz_Obsidian-css"}
+  ]
+}

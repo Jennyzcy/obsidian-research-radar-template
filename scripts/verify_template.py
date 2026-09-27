@@ -15,7 +15,8 @@ def main():
     root = Path(__file__).resolve().parents[1]
     findings = []
     for path in root.rglob("*"):
-        if path.is_file() and path != Path(__file__).resolve() and ".git" not in path.parts and ".superpowers" not in path.parts and "tests" not in path.parts:
+        is_vendored_dependency = "vault-template" in path.parts and ".obsidian" in path.parts and ("plugins" in path.parts or "themes" in path.parts)
+        if path.is_file() and path != Path(__file__).resolve() and not is_vendored_dependency and ".git" not in path.parts and ".superpowers" not in path.parts and "tests" not in path.parts:
             try:
                 findings.extend(find_sensitive_text(path.read_text(encoding="utf-8"), path.relative_to(root)))
             except UnicodeDecodeError:

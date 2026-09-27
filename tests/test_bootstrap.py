@@ -2,10 +2,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.bootstrap_obsidian import is_complete, load_manifest, plan_install
+from scripts.bootstrap_obsidian import NETWORK_TIMEOUT_SECONDS, is_complete, load_manifest, plan_install
 
 
 class BootstrapTests(unittest.TestCase):
+    def test_network_timeout_is_bounded(self):
+        self.assertEqual(NETWORK_TIMEOUT_SECONDS, 30)
+
     def test_plan_preserves_unrelated_plugin(self):
         with tempfile.TemporaryDirectory() as temp:
             vault = Path(temp)

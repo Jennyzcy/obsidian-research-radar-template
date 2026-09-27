@@ -20,6 +20,16 @@ class TemplateStructureTests(unittest.TestCase):
         declared = {item["id"] for item in manifest["plugins"]}
         self.assertTrue(set(enabled).issubset(declared))
 
+    def test_all_declared_plugins_and_theme_are_bundled(self):
+        manifest = json.loads((ROOT / "dependencies/plugins.json").read_text(encoding="utf-8"))
+        for plugin in manifest["plugins"]:
+            folder = VAULT / ".obsidian/plugins" / plugin["id"]
+            self.assertTrue((folder / "main.js").is_file(), plugin["id"])
+            self.assertTrue((folder / "manifest.json").is_file(), plugin["id"])
+        theme = VAULT / ".obsidian/themes/Blue Topaz"
+        self.assertTrue((theme / "theme.css").is_file())
+        self.assertTrue((theme / "manifest.json").is_file())
+
 
 if __name__ == "__main__":
     unittest.main()

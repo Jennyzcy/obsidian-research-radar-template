@@ -8,6 +8,7 @@ from urllib.request import urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
+NETWORK_TIMEOUT_SECONDS = 30
 
 
 def load_manifest(path):
@@ -25,7 +26,7 @@ def plan_install(vault, dependencies):
 
 
 def _download(url, destination):
-    with urlopen(url) as response, destination.open("wb") as handle:
+    with urlopen(url, timeout=NETWORK_TIMEOUT_SECONDS) as response, destination.open("wb") as handle:
         shutil.copyfileobj(response, handle)
 
 
@@ -40,6 +41,7 @@ def install_all(vault, dependencies):
         if is_complete(target, entry["files"]):
             print("跳过已打包组件：{0}".format(item["id"]))
             continue
+        print("正在下载：{0}".format(item["id"]), flush=True)
         with tempfile.TemporaryDirectory() as temp:
             temp = Path(temp)
             if item["kind"] == "theme":
@@ -59,7 +61,7 @@ def install_all(vault, dependencies):
 
 
 def load_manifest_from_url(url):
-    with urlopen(url) as response:
+    with urlopen(url, timeout=NETWORK_TIMEOUT_SECONDS) as response:
         return json.loads(response.read().decode("utf-8"))
 
 

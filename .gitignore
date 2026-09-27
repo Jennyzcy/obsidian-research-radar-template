@@ -3,32 +3,6 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .superpowers/
-vault-template/.obsidian/plugins/*
-!vault-template/.obsidian/plugins/calendar-beta/
-!vault-template/.obsidian/plugins/calendar-beta/**
-!vault-template/.obsidian/plugins/dataview/
-!vault-template/.obsidian/plugins/dataview/**
-!vault-template/.obsidian/plugins/homepage/
-!vault-template/.obsidian/plugins/homepage/**
-!vault-template/.obsidian/plugins/obsidian-meta-bind-plugin/
-!vault-template/.obsidian/plugins/obsidian-meta-bind-plugin/**
-!vault-template/.obsidian/plugins/obsidian-spaced-repetition/
-!vault-template/.obsidian/plugins/obsidian-spaced-repetition/**
-!vault-template/.obsidian/plugins/obsidian-tasks-plugin/
-!vault-template/.obsidian/plugins/obsidian-tasks-plugin/**
-!vault-template/.obsidian/plugins/omnisearch/
-!vault-template/.obsidian/plugins/omnisearch/**
-!vault-template/.obsidian/plugins/quickadd/
-!vault-template/.obsidian/plugins/quickadd/**
-!vault-template/.obsidian/plugins/gentle-pomo/
-!vault-template/.obsidian/plugins/gentle-pomo/**
-!vault-template/.obsidian/plugins/task-hub/
-!vault-template/.obsidian/plugins/task-hub/**
-!vault-template/.obsidian/plugins/copilot/
-!vault-template/.obsidian/plugins/copilot/**
-vault-template/.obsidian/themes/*
-!vault-template/.obsidian/themes/Blue\ Topaz/
-!vault-template/.obsidian/themes/Blue\ Topaz/**
 vault-template/02-文献/论文雷达/01-每日推送/*
 !vault-template/02-文献/论文雷达/01-每日推送/.gitkeep
 vault-template/02-文献/论文雷达/02-每周精选/*

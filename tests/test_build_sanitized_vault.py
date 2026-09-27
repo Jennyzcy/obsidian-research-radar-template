@@ -20,7 +20,7 @@ class SanitizedVaultBuildTests(unittest.TestCase):
         for name, payload in {
             "app.json": {},
             "appearance.json": {"cssTheme": "Blue Topaz"},
-            "community-plugins.json": ["dataview"],
+            "community-plugins.json": ["dataview", "missing-plugin"],
             "core-plugins.json": {},
         }.items():
             (settings / name).write_text(__import__("json").dumps(payload), encoding="utf-8")
@@ -65,6 +65,10 @@ class SanitizedVaultBuildTests(unittest.TestCase):
             self.assertTrue((stage / ".obsidian/themes/Blue Topaz/theme.css").is_file())
             self.assertTrue((stage / ".obsidian/plugins/dataview/main.js").is_file())
             self.assertFalse((stage / ".obsidian/workspace.json").exists())
+            enabled_plugins = __import__("json").loads(
+                (stage / ".obsidian/community-plugins.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(enabled_plugins, ["dataview"])
             plugin_data = (stage / ".obsidian/plugins/dataview/data.json").read_text(encoding="utf-8")
             self.assertNotIn("/Users/zcy", plugin_data)
 

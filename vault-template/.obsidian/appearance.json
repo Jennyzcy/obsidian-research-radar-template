@@ -1,1 +1,11 @@
-{"cssTheme":"Blue Topaz","enabledCssSnippets":["research-dashboard"],"baseFontSize":16}
+{
+  "cssTheme": "Blue Topaz",
+  "baseFontSizeAction": true,
+  "translucency": true,
+  "baseFontSize": 16,
+  "interfaceFontFamily": "PingFang SC",
+  "textFontFamily": "LXGW WenKai Mono",
+  "monospaceFontFamily": "LXGW WenKai Mono",
+  "accentColor": "#3d80c7",
+  "enabledCssSnippets": []
+}

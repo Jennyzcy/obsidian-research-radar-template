@@ -20,7 +20,7 @@ def _should_scan(path, root):
     relative = path.relative_to(root)
     if ".git" in relative.parts or ".superpowers" in relative.parts or "tests" in relative.parts:
         return False
-    is_vendor_code = "vault-template" in relative.parts and ".obsidian" in relative.parts and (
+    is_vendor_code = ".obsidian" in relative.parts and (
         "themes" in relative.parts or ("plugins" in relative.parts and path.name != "data.json")
     )
     return not is_vendor_code

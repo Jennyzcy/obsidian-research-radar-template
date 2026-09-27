@@ -1,0 +1,22 @@
+{
+  "pluginList": [
+    "rezonegame/yh-inklight"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "rezonegame/yh-inklight",
+      "version": ""
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}

@@ -114,6 +114,22 @@ def _copy_allowed_settings(source: Path, destination: Path) -> None:
         _copy_tree(snippets, destination / "snippets")
 
 
+def _keep_only_bundled_plugins(obsidian_destination: Path) -> None:
+    enabled_path = obsidian_destination / "community-plugins.json"
+    if not enabled_path.is_file():
+        return
+    enabled = json.loads(enabled_path.read_text(encoding="utf-8"))
+    bundled = {
+        folder.name
+        for folder in (obsidian_destination / "plugins").iterdir()
+        if folder.is_dir() and (folder / "main.js").is_file() and (folder / "manifest.json").is_file()
+    }
+    enabled_path.write_text(
+        json.dumps([plugin_id for plugin_id in enabled if plugin_id in bundled], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def _copy_reusable_content(source: Path, destination: Path) -> None:
     for relative in SKELETON_DIRECTORIES:
         folder = destination / relative
@@ -147,6 +163,7 @@ def build_template(source: Path, destination: Path) -> List[Path]:
     _copy_tree(obsidian_source / "themes", obsidian_destination / "themes")
     _copy_plugins(obsidian_source / "plugins", obsidian_destination / "plugins")
     _copy_allowed_settings(obsidian_source, obsidian_destination)
+    _keep_only_bundled_plugins(obsidian_destination)
     _copy_reusable_content(source, destination)
     return sorted(destination.rglob("*"))
 

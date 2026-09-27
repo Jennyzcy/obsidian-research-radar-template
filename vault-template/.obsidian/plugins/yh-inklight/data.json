@@ -1,0 +1,45 @@
+{
+  "defaultHighlightColor": "yellow",
+  "defaultAuthor": "读者",
+  "migrateOnRename": true,
+  "annotationTags": [
+    {
+      "id": "insight",
+      "name": "洞见",
+      "icon": "lightbulb",
+      "enabled": true,
+      "builtIn": true
+    },
+    {
+      "id": "question",
+      "name": "疑问",
+      "icon": "circle-help",
+      "enabled": true,
+      "builtIn": true
+    },
+    {
+      "id": "reminder",
+      "name": "提醒",
+      "icon": "bell",
+      "enabled": true,
+      "builtIn": true
+    }
+  ],
+  "epubDefaultFlow": "scrolled",
+  "epubFontSize": 16,
+  "epubReadingTheme": "obsidian",
+  "epubHighlightStyle": "fill",
+  "epubReadingProfile": {
+    "fontFamily": "publisher",
+    "customFontEnabled": false,
+    "customFontFamily": "",
+    "einkMode": false,
+    "fontSize": 16,
+    "lineHeight": 1.7,
+    "contentWidth": 760,
+    "textAlign": "start",
+    "flow": "scrolled",
+    "theme": "obsidian"
+  },
+  "pdfProgressTracking": true
+}

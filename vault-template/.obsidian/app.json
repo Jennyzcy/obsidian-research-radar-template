@@ -1,1 +1,11 @@
-{"newFileLocation":"folder","newFileFolderPath":"00-待审查"}
+{
+  "promptDelete": false,
+  "attachmentFolderPath": "附件",
+  "alwaysUpdateLinks": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
+}

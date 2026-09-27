@@ -7,7 +7,7 @@
 ## 快速开始
 
 1. 下载或克隆本仓库。
-2. 在终端运行：`python3 scripts/bootstrap_obsidian.py vault-template --dry-run`，先查看将安装的主题和插件。
+2. 在终端运行：`python3 scripts/bootstrap_obsidian.py vault-template`，先查看将安装的主题和插件。
 3. 确认后运行：`python3 scripts/bootstrap_obsidian.py vault-template --apply`，重启 Obsidian，在“第三方插件”中确认信任并打开 `vault-template/`。
 
 接下来请阅读 [安装说明](docs/INSTALL.md)、[定制说明](docs/CUSTOMIZE.md) 与 [Codex Desktop 定时任务设置](automation/CODEX_DESKTOP_SETUP.md)。
